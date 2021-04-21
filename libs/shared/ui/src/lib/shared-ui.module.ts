@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Route } from '@angular/router';
+import { PostItemComponent } from './components/post-item/post-item.component';
+import { PostsFeedComponent } from './components/posts-feed/posts-feed.component';
 
-export const sharedUiRoutes: Route[] = [];
+export const sharedUiRoutes: Route[] = [
+  {path: '', component: PostsFeedComponent}
+];
 
 @NgModule({
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule.forChild(sharedUiRoutes)],
+  declarations: [
+    PostItemComponent,
+    PostsFeedComponent
+  ],
 })
 export class SharedUiModule {}

@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthFeatureModule } from '@auth/feature';
 import { AuthUiModule } from '@auth/ui';
 import { SharedUiModule } from '@shared/ui';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,17 @@ import { SharedUiModule } from '@shared/ui';
     AuthFeatureModule,
     AuthUiModule,
     SharedUiModule,
+    RouterModule.forRoot([
+      {
+        path: 'shared-ui',
+        loadChildren: () => import('@shared/ui').then((m) => m.SharedUiModule),
+      },
+      {
+        path: '',
+        redirectTo: 'shared-ui',
+        pathMatch: 'full'
+      },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent],
