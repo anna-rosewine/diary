@@ -1,25 +1,15 @@
 {
   "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     ".eslintrc.json": "*"
   },
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "master" },
   "npmScope": "diary",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "ZjBjYTIxYzUtNGUxNi00NzRhLTkwMzItOTVkMWM5ZmUyMTcwfHJlYWQtd3JpdGU=",
         "canTrackAnalytics": false,
         "showUsageWarnings": true
@@ -27,20 +17,12 @@
     }
   },
   "projects": {
-    "my-app": {
-      "tags": []
-    },
-    "my-app-e2e": {
-      "tags": [],
-      "implicitDependencies": [
-        "my-app"
-      ]
-    },
-    "api": {
-      "tags": []
-    },
-    "api-interfaces": {
-      "tags": []
-    }
+    "my-app": { "tags": [] },
+    "my-app-e2e": { "tags": [], "implicitDependencies": ["my-app"] },
+    "api": { "tags": [] },
+    "api-interfaces": { "tags": [] },
+    "auth-feature": { "tags": [] },
+    "auth-ui": { "tags": [] },
+    "shared-ui": { "tags": [] }
   }
 }

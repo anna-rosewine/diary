@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@diary/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@diary/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@auth/feature": ["libs/auth/feature/src/index.ts"],
+      "@auth/ui": ["libs/auth/ui/src/index.ts"],
+      "@shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
