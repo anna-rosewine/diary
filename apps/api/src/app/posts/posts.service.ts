@@ -20,10 +20,20 @@ export default class PostsService {
     throw new HttpException('Post not found', HttpStatus.NOT_FOUND);
   }
 
+  updateLikes(id: number){
+    const postIndex = this.posts.findIndex(post => post.id === id);
+    if (postIndex > -1) {
+      this.posts[postIndex].likes = this.posts[postIndex].likes  + 1;
+      return this.posts[postIndex];
+    }
+    throw new HttpException('Post not found', HttpStatus.NOT_FOUND);
+  }
+
   replacePost(id: number, post: UpdatePostDto) {
     const postIndex = this.posts.findIndex(post => post.id === id);
     if (postIndex > -1) {
       this.posts[postIndex] = post;
+      this.posts[postIndex].likes = this.posts[postIndex].likes  + 1;
       return post;
     }
     throw new HttpException('Post not found', HttpStatus.NOT_FOUND);

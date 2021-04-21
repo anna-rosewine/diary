@@ -3,6 +3,6 @@ export interface UpdatePostDto {
   title: string;
   body: string;
   likes: number;
-  date?: string;
-  author?: string;
+  date: string;
+  author: string;
 }

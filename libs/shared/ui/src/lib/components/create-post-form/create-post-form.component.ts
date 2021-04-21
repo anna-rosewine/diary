@@ -10,7 +10,6 @@ export class CreatePostFormComponent implements OnInit {
   inputTitle: string;
   inputBody: string;
 
-
   constructor(private http: HttpClient) { }
 
   createPost(){

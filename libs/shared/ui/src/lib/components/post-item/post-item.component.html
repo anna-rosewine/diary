@@ -1,10 +1,11 @@
 <div class='container'>
   <h3 class='title'>{{post.title}}</h3>
   <p class='date'>{{post.date}}</p>
+  <p class='date'>{{post.id}}</p>
   <p class='contentBody'>{{post.body}}</p>
   <div class='interaction'>
     <div class='likes'>
-      <img src="https://img.icons8.com/material-sharp/24/000000/like--v1.png"/>
+      <img (click)='addLike()' src="https://img.icons8.com/material-sharp/24/000000/like--v1.png" alt='heart'/>
       <p class='counter'>{{post.likes}}</p>
     </div>
   </div>

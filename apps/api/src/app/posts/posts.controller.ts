@@ -14,6 +14,11 @@ export default class PostsController {
     return this.postsService.getAllPosts();
   }
 
+  // @Put()
+  // updateLikes(@Body()id: number){
+  //   return this.postsService.updateLikes(id);
+  // }
+
   @Get(':id')
   getPostById(@Param('id') id: string) {
     return this.postsService.getPostById(Number(id));
@@ -25,7 +30,8 @@ export default class PostsController {
   }
 
   @Put(':id')
-  async replacePost(@Param('id') id: string, @Body() post: UpdatePostDto) {
+  async updatePost(@Param('id') id: string, @Body() post: UpdatePostDto) {
+    console.log(post.likes)
     return this.postsService.replacePost(Number(id), post);
   }
 
