@@ -1,0 +1,31 @@
+.container{
+  padding: 30px;
+  width: 600px;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 10px 10px 40px #e5e5e5;
+  .title {
+    font-weight: 800;
+    font-size: 25px;
+  }
+  .date{
+    font-size: 15px;
+    font-weight: 200;
+    margin: 0;
+  }
+
+  .contentBody {
+    font-weight: 300;
+  }
+
+  .interaction {
+    display: flex;
+    .likes {
+      display: flex;
+      align-items: center;
+      img {
+        margin-right: 8px;
+      }
+    }
+  }
+}

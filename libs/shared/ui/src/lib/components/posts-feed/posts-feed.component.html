@@ -1,2 +1,5 @@
 <p>posts-feed works!</p>
-<diary-post-item></diary-post-item>
+<div *ngFor='let post of posts'>
+  <diary-post-item [post]='post'></diary-post-item>
+</div>
+
