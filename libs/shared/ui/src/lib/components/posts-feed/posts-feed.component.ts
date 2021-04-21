@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../models/post.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'diary-posts-feed',
@@ -25,7 +26,13 @@ export class PostsFeedComponent implements OnInit {
       likes: 5,
     }
   ]
-  constructor() { }
+  constructor( private http: HttpClient) {
+    this.fetch();
+  }
+
+  fetch(){
+    this.http.get<Post[]>('api/posts').subscribe((p) => (this.posts = p));
+  }
 
   ngOnInit(): void {
   }
