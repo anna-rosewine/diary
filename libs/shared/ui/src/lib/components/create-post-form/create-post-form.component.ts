@@ -13,7 +13,7 @@ export class CreatePostFormComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   createPost(){
-    this.http.post('api/posts', {title: this.inputTitle, body: this.inputBody}).subscribe();
+    this.http.post('api/posts', {title: this.inputTitle, body: this.inputBody, likes: 0, author: 'Anna'}).subscribe();
     this.inputTitle = "";
     this.inputBody = "";
   }

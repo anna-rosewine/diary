@@ -14,10 +14,10 @@ export default class PostsController {
     return this.postsService.getAllPosts();
   }
 
-  // @Put()
-  // updateLikes(@Body()id: number){
-  //   return this.postsService.updateLikes(id);
-  // }
+  @Put(':id')
+  updateLikes(@Body()id: number){
+    return this.postsService.updateLikes(id);
+  }
 
   @Get(':id')
   getPostById(@Param('id') id: string) {
@@ -29,15 +29,15 @@ export default class PostsController {
     return this.postsService.createPost(post);
   }
 
-  @Put(':id')
+  @Put()
   async updatePost(@Param('id') id: string, @Body() post: UpdatePostDto) {
     console.log(post.likes)
     return this.postsService.replacePost(Number(id), post);
   }
 
   @Delete(':id')
-  async deletePost(@Param('id') id: string) {
-    this.postsService.deletePost(Number(id));
+  async deletePost(@Param('id') id: number) {
+    await this.postsService.deletePost(Number(id));
   }
 
 }

@@ -16,6 +16,10 @@ export class PostItemComponent implements OnInit {
     this.http.put<Post>(`/api/posts/${this.post.id}`, {id: Number(this.post.id), likes: this.post.likes, title:this.post.title, body:this.post.body, author: this.post.author, date: this.post.date}).subscribe((p) => {this.post = p});
  }
 
+ deletePost(){
+    this.http.delete(`/api/posts/${this.post.id}`).subscribe();
+ }
+
   ngOnInit(): void {
   }
 
