@@ -17,7 +17,7 @@ import { OwnersModule } from './owners/owners.module';
 @Module({
   imports: [PostsModule, GraphQLModule.forRoot({
     autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-  }), PetsModule,  ConfigModule.forRoot({
+  }),   ConfigModule.forRoot({
     validationSchema: Joi.object({
       POSTGRES_HOST: Joi.string().required(),
       POSTGRES_PORT: Joi.number().required(),
@@ -27,7 +27,7 @@ import { OwnersModule } from './owners/owners.module';
       PORT: Joi.number(),
     })
   }),
-  DatabaseModule,
+  DatabaseModule, PetsModule,
   OwnersModule],
   controllers: [AppController],
   providers: [AppService],

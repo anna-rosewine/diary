@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { Pet } from './pet.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -8,7 +8,7 @@ import { OwnersService } from '../owners/owners.service';
 
 @Injectable()
 export class PetsService{
-  constructor(@InjectRepository(Pet) private petsRepository: Repository<Pet>, private ownersService: OwnersService) {
+  constructor(@InjectRepository(Pet) private petsRepository: Repository<Pet>, @Inject(forwardRef(() => OwnersService)) private ownersService: OwnersService) {
   }
 
   createPet(createPetInput: CreatePetInput): Promise<Pet> {
