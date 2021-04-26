@@ -6,10 +6,17 @@ import {PostsModule} from './posts/posts.module';
 import * as Joi from 'joi';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
+import { PetsModule } from './pets/pets.module';
+import { GraphQLModule } from '@nestjs/graphql';
+import { join } from 'path';
+
+
 
 
 @Module({
-  imports: [PostsModule,  ConfigModule.forRoot({
+  imports: [PostsModule, GraphQLModule.forRoot({
+    autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+  }), PetsModule,  ConfigModule.forRoot({
     validationSchema: Joi.object({
       POSTGRES_HOST: Joi.string().required(),
       POSTGRES_PORT: Joi.number().required(),
