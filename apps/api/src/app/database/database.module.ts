@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { Post } from '../posts/post.entity';
+import { Owner } from '../owners/entities/owner.entity';
 import { Pet } from '../pets/pet.entity';
 
 @Module({
@@ -17,7 +18,7 @@ import { Pet } from '../pets/pet.entity';
         password: configService.get('POSTGRES_PASSWORD'),
         database: configService.get('POSTGRES_DB'),
         entities: [
-          Post, Pet
+          Post, Pet, Owner
         ],
         synchronize: true,
       })

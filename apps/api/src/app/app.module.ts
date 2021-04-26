@@ -9,6 +9,7 @@ import { DatabaseModule } from './database/database.module';
 import { PetsModule } from './pets/pets.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
+import { OwnersModule } from './owners/owners.module';
 
 
 
@@ -26,7 +27,8 @@ import { join } from 'path';
       PORT: Joi.number(),
     })
   }),
-  DatabaseModule],
+  DatabaseModule,
+  OwnersModule],
   controllers: [AppController],
   providers: [AppService],
 })
