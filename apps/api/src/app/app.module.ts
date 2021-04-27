@@ -10,7 +10,7 @@ import { UsersModule } from './users/users.module';
 
 
 @Module({
-  imports: [PostsModule, UsersModule,  ConfigModule.forRoot({
+  imports: [PostsModule,  ConfigModule.forRoot({
     validationSchema: Joi.object({
       POSTGRES_HOST: Joi.string().required(),
       POSTGRES_PORT: Joi.number().required(),

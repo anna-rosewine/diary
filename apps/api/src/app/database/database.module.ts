@@ -20,10 +20,6 @@ import { User } from '../users/user.entity';
           Post, User
         ],
         synchronize: true,
-        migrations: ['dist/src/db/migrations/*.js'],
-        cli: {
-          migrationsDir: 'src/db/migrations'
-        }
       })
     }),
   ],
