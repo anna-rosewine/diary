@@ -45,6 +45,7 @@ export default class PostsService {
   }
 
   replacePost(id: number, post: UpdatePostDto) {
+    // tslint:disable-next-line:no-shadowed-variable
     const postIndex = this.posts.findIndex(post => post.id === id);
     if (postIndex > -1) {
       this.posts[postIndex] = post;
@@ -64,7 +65,8 @@ export default class PostsService {
   }
 
   async createPost(post: CreatePostDto) {
-    const newPost = await this.postsRepository.create(post);
+    // @ts-ignore
+    const newPost = this.postsRepository.create(post);
     await this.postsRepository.save(newPost);
     return newPost;
   }

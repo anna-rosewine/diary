@@ -31,6 +31,7 @@ export class PostsFeedComponent implements OnInit {
   }
 
   fetch(){
+    this.ngOnInit();
     this.http.get<Post[]>('api/posts').subscribe((p) => (this.posts = p));
   }
 

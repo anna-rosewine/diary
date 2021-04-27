@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Post } from '../../models/post.model';
 import { HttpClient } from '@angular/common/http';
 
@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./post-item.component.scss']
 })
 export class PostItemComponent implements OnInit {
+  @Output() reload: EventEmitter<any> = new EventEmitter();
   @Input() post: Post
   constructor( private http: HttpClient) { }
 
@@ -18,6 +19,7 @@ export class PostItemComponent implements OnInit {
 
  deletePost(){
     this.http.delete(`/api/posts/${this.post.id}`).subscribe();
+    this.reload.emit();
  }
 
   ngOnInit(): void {
