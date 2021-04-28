@@ -15,10 +15,12 @@ export class CreatePostFormComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   createPost(){
-    this.http.post('api/posts', {title: this.inputTitle, body: this.inputBody, likes: 0, author: {id: 14}}).subscribe();
+    this.http.post('api/posts', {title: this.inputTitle, body: this.inputBody, likes: 0, author: {id: 14}}).subscribe(() => {
+      this.reload.emit();
+    });
     this.inputTitle = "";
     this.inputBody = "";
-    this.reload.emit();
+
   }
 
   ngOnInit(): void {

@@ -18,8 +18,9 @@ export class PostItemComponent implements OnInit {
  }
 
  deletePost(){
-    this.http.delete(`/api/posts/${this.post.id}`).subscribe();
-    this.reload.emit();
+    this.http.delete(`/api/posts/${this.post.id}`).subscribe(() => {
+      this.reload.emit();
+    });
  }
 
   ngOnInit(): void {
