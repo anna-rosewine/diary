@@ -18,15 +18,21 @@ import { RouterModule } from '@angular/router';
     SharedUiModule,
     RouterModule.forRoot([
       {
+        path: 'chat-ui',
+        loadChildren: () =>
+          import('@diary/chat').then((module) => module.ChatUiModule),
+      },
+      {
         path: 'shared-ui',
         loadChildren: () => import('@shared/ui').then((m) => m.SharedUiModule),
       },
+
       {
         path: '',
-        redirectTo: 'shared-ui',
-        pathMatch: 'full'
+        redirectTo: 'chat-ui',
+        pathMatch: 'full',
       },
-    ])
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent],

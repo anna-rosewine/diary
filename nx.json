@@ -23,6 +23,7 @@
     "api-interfaces": { "tags": [] },
     "auth-feature": { "tags": [] },
     "auth-ui": { "tags": [] },
-    "shared-ui": { "tags": [] }
+    "shared-ui": { "tags": [] },
+    "chat-ui": { "tags": [] }
   }
 }

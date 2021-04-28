@@ -181,7 +181,6 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json"
-//            "assets": ["apps/api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -310,6 +309,32 @@
           "outputs": ["coverage/libs/shared/ui"],
           "options": {
             "jestConfig": "libs/shared/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "chat-ui": {
+      "projectType": "library",
+      "root": "libs/chat/ui",
+      "sourceRoot": "libs/chat/ui/src",
+      "prefix": "diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/chat/ui/tsconfig.lib.json",
+              "libs/chat/ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/chat/ui/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat/ui"],
+          "options": {
+            "jestConfig": "libs/chat/ui/jest.config.js",
             "passWithNoTests": true
           }
         }
