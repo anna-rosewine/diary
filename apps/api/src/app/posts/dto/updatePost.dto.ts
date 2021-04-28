@@ -6,5 +6,5 @@ export interface UpdatePostDto {
   body: string;
   likes: number;
   date: string;
-  author: User;
+  author: string;
 }

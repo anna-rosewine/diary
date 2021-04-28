@@ -44,9 +44,9 @@ export default class PostsService {
     throw new HttpException('Post not found', HttpStatus.NOT_FOUND);
   }
 
-  replacePost(id: number, post: UpdatePostDto) {
-    // tslint:disable-next-line:no-shadowed-variable
-    const postIndex = this.posts.findIndex(post => post.id === id);
+  async replacePost(id: number, post: UpdatePostDto) {
+
+    const postIndex = await this.posts.findIndex((post) => post.id === id);
     if (postIndex > -1) {
       this.posts[postIndex] = post;
       this.posts[postIndex].likes = this.posts[postIndex].likes  + 1;
@@ -65,7 +65,7 @@ export default class PostsService {
   }
 
   async createPost(post: CreatePostDto) {
-    // @ts-ignore
+
     const newPost = this.postsRepository.create(post);
     await this.postsRepository.save(newPost);
     return newPost;
