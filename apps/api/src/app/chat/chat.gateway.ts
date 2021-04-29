@@ -18,13 +18,16 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
 
   async handleConnection(client: any, ...args: any[]){
+    console.log('new user')
     this.users++;
     this.server.emit('users', this.users)
+    return this.users
   }
 
    async handleDisconnect(client: any) {
     this.users--;
      this.server.emit('users', this.users)
+     return this.users
   }
 
   @SubscribeMessage('chat')
