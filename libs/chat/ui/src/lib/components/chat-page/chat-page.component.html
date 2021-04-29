@@ -1,1 +1,12 @@
-<p>chat-page works!</p>
+<h1>Live chat</h1>
+
+<p>There are currently <strong>{{users}}</strong> users online. Start chatting!</p>
+
+<div *ngFor='let message of messages'>
+  <p>{{message}}</p>
+</div>
+
+<input   class="chat-input" [(ngModel)]="message" placeholder="type message..." (keyup.enter)="addChat()">
+
+
+<button (click)="addChat()">Send</button>

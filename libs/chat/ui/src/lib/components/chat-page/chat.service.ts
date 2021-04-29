@@ -8,7 +8,6 @@ import { Socket } from 'ngx-socket-io';
 
 export class ChatService {
   constructor(private socket: Socket){
-
   }
 
   sendChat(message){

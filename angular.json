@@ -65,6 +65,9 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/apps/my-app",
+            "allowedCommonJsDependencies": [
+              "socket.io-client"
+            ],
             "index": "apps/my-app/src/index.html",
             "main": "apps/my-app/src/main.ts",
             "polyfills": "apps/my-app/src/polyfills.ts",

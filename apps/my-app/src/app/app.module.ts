@@ -7,6 +7,8 @@ import { AuthFeatureModule } from '@auth/feature';
 import { AuthUiModule } from '@auth/ui';
 import { SharedUiModule } from '@shared/ui';
 import { RouterModule } from '@angular/router';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+const config: SocketIoConfig = { url: 'http://localhost:3333/', options: {}};
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +35,7 @@ import { RouterModule } from '@angular/router';
         pathMatch: 'full',
       },
     ]),
+    SocketIoModule.forRoot(config),
   ],
   providers: [],
   bootstrap: [AppComponent],

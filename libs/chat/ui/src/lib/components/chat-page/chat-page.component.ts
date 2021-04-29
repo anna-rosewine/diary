@@ -13,7 +13,6 @@ export class ChatPageComponent implements OnInit {
   public messages: string[] = [];
 
   constructor(private chatService: ChatService){
-
   }
 
   ngOnInit(){
